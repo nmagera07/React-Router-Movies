@@ -29,6 +29,7 @@ export default class App extends Component {
           render={props => (
             <Movie {...props} addToSavedList={this.addToSavedList} />
           )}
+        
         />
         
       </div>

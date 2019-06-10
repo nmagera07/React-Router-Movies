@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { NavLink } from 'react-router-dom'
 
 export default class Movie extends Component {
   constructor(props) {
@@ -46,7 +47,9 @@ export default class Movie extends Component {
     return (
       <div className="save-wrapper">
         <div className="movie-card">
+          <NavLink>
           <h2>{title}</h2>
+          
           <div className="movie-director">
             Director: <em>{director}</em>
           </div>
@@ -54,12 +57,13 @@ export default class Movie extends Component {
             Metascore: <strong>{metascore}</strong>
           </div>
           <h3>Actors</h3>
-
+          
           {stars.map(star => (
             <div key={star} className="movie-star">
               {star}
             </div>
           ))}
+          </NavLink>
         </div>
         <div className="save-button" onClick={this.saveMovie}>Save</div>
       </div>
