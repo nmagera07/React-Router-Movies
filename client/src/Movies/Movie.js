@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { NavLink } from 'react-router-dom'
+
 
 export default class Movie extends Component {
   constructor(props) {
@@ -12,7 +12,7 @@ export default class Movie extends Component {
 
   componentDidMount() {
     // change this line to grab the id passed on the URL
-    const id = this.props.match.params.movieId;
+    const id = this.props.match.params.id;
     this.fetchMovie(id);
   }
 
@@ -35,7 +35,9 @@ export default class Movie extends Component {
 
   saveMovie = () => {
     const addToSavedList = this.props.addToSavedList;
+    
     addToSavedList(this.state.movie)
+    
   }
 
   render() {
@@ -47,7 +49,7 @@ export default class Movie extends Component {
     return (
       <div className="save-wrapper">
         <div className="movie-card">
-          <NavLink>
+          
           <h2>{title}</h2>
           
           <div className="movie-director">
@@ -63,7 +65,7 @@ export default class Movie extends Component {
               {star}
             </div>
           ))}
-          </NavLink>
+          
         </div>
         <div className="save-button" onClick={this.saveMovie}>Save</div>
       </div>
